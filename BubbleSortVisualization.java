@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 class BubbleSortVisualization extends JPanel {
     private int[] array;
-    private int[] arr;
     private int currentPass = 0;
     private int currentIndex = 0;
     private Timer timer;
@@ -35,13 +34,13 @@ class BubbleSortVisualization extends JPanel {
             }
         });
     }
+
     public void setArray(int[] array) {
         this.array = array;
         currentPass = 0;
         sortedArrays = new int[array.length][];
         startX = (getWidth() - array.length * (boxWidth + padding)) / 2;
         startY = (getHeight() - boxHeight) / 2;
-        arr = array.clone();
     }
 
     private void bubbleSortStep() {
@@ -53,76 +52,50 @@ class BubbleSortVisualization extends JPanel {
                 isSwapping = true;
             }
             currentIndex++;
-        }
-        else {
+        } else {
             currentIndex = 0;
             sortedArrays[currentPass] = array.clone(); // Store the array after each pass
             currentPass++;
         }
     }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         // Draw title "The Array Is" before the graph
-        int graphWidth = array.length * (boxWidth + padding) - padding;
-        int graphHeight = boxHeight + padding;
-        int graphX = (getWidth() - graphWidth) / 2;
-        int graphY = (getHeight() - graphHeight * currentPass) / 2;
         g.setColor(Color.BLACK);
         g.setFont(titleFont);
         FontMetrics titleMetrics = g.getFontMetrics(titleFont);
-        String title = "Input Array is :";
+        String title = "The Visualization of Bubble Sort in Given Array Is";
         int titleX = (getWidth() - titleMetrics.stringWidth(title)) / 2;
-        int titleY = (getHeight() - boxHeight) / 2 - 250;
+        int titleY = (getHeight() - boxHeight) / 2 - 230;
         g.drawString(title, titleX, titleY);
+
         // Draw graphical representation of the array
-        FontMetrics titleMetrics1 = g.getFontMetrics(titleFont);
-        String title1 = "The Visualization of Bubble Sort";
-        int titleX1 = (getWidth() - titleMetrics1.stringWidth(title1)) / 2;
-        int titleY1 = (getHeight() - boxHeight) / 2 - 130;
-        g.drawString(title1, titleX1, titleY1);
-
-        for (int j = 0; j < array.length; j++) {
-            int x1 = graphX + j * (boxWidth + padding);
-            int y1 = graphHeight;
-
-            g.setColor(Color.BLACK);
-
-            g.fillRoundRect(x1, y1, boxWidth, boxHeight, 10, 10);
-
-            g.setColor(Color.WHITE);
-            g.setFont(new Font("Arial", Font.BOLD, 20));
-            String numberStr1 = Integer.toString(arr[j]);
-            int strX1 = x1 + (boxWidth - g.getFontMetrics().stringWidth(numberStr1)) / 2;
-            int strY1 = y1 + (boxHeight - g.getFontMetrics().getHeight()) / 2 + g.getFontMetrics().getAscent();
-            g.drawString(numberStr1, strX1, strY1);
-        }
         if (currentPass > 0) {
+            int graphWidth = array.length * (boxWidth + padding) - padding;
+            int graphHeight = boxHeight + padding;
+            int graphX = (getWidth() - graphWidth) / 2;
+            int graphY = (getHeight() - graphHeight * currentPass) / 2;
 
-            g.setColor(Color.BLACK);
-            g.setFont(titleFont);
-            int pass = 0;
-
-            for (pass = 0; pass < currentPass; pass++) {
+            for (int pass = 0; pass < currentPass; pass++) {
                 int[] sortedArray = sortedArrays[pass];
                 for (int i = 0; i < array.length; i++) {
                     int x = graphX + i * (boxWidth + padding);
                     int y = graphY + pass * graphHeight;
-                    // Highlight sorted elements
 
+                    // Highlight sorted elements
                     if (pass == currentPass - 1 && (i == currentIndex || i == currentIndex + 1)) {
                         g.setColor(Color.RED);
-                    } else if (i >= array.length - 1 - pass || currentPass == array.length || ( pass== array.length-1)) {
+                    } else if (pass == currentPass - 1 && isSwapping && (i == currentIndex || i == currentIndex + 1)) {
+                        g.setColor(Color.ORANGE);
+                    } else if (i >= array.length - 1 - pass) {
                         g.setColor(Color.GREEN);
-                    }
-                    else {
+                    } else {
                         g.setColor(Color.BLACK);
                     }
-                    if (currentPass==array.length-1 && pass == currentPass-1){
-                        for (int k = 0; k < array.length - 1; k++) {
-                            g.setColor(Color.GREEN);
-                        }
-                    }
+
                     // Draw rounded rectangle box
                     g.fillRoundRect(x, y, boxWidth, boxHeight, 10, 10);
 
@@ -143,7 +116,7 @@ class BubbleSortVisualization extends JPanel {
         FontMetrics metrics = g.getFontMetrics(passFont);
         String passString = "Pass: " + currentPass;
         int passX = (getWidth() - metrics.stringWidth(passString)) / 2;
-        int passY = (getHeight() - boxHeight) / 2 + 230;;
+        int passY = (getHeight() - boxHeight) / 2 + 230;
         g.drawString(passString, passX, passY);
     }
 
@@ -188,6 +161,7 @@ class BubbleSortVisualization extends JPanel {
                         visualizationPanel.startSorting();
                     }
                 });
+
                 frame.add(panel, BorderLayout.NORTH);
                 frame.setVisible(true);
             }
