@@ -28,7 +28,7 @@ Ensure you have the following installed:
 ### Run the Application
 
 1. Clone the repository or download the source code:
-   git clone https://github.com/your-username/bubble-sort-visualization.git
+   git clone https://github.com/Salonijibhe/Bubble-Sort-Visualization/blob/main/BubbleSortVisualization.java
    cd bubble-sort-visualization
    
 Compile the program:
@@ -36,6 +36,7 @@ javac BubbleSortVisualization.java
 
 Run the application:
 java BubbleSortVisualization
+
 🎮 Usage
 Enter array elements (e.g., 45 12 78 33 9) into the text field at the top.
 
