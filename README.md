@@ -23,12 +23,13 @@ check the screenshot file in repository
 Ensure you have the following installed:
 
 - Java Development Kit (JDK) 8 or later
-- Any Java IDE (e.g., IntelliJ IDEA, Eclipse) or terminal/command-line tools
+- Any Java IDE (e.g.VSCode, IntelliJ IDEA, Eclipse) or terminal/command-line tools
 
 ### Run the Application
 
 1. Clone the repository or download the source code:
    git clone https://github.com/Salonijibhe/Bubble-Sort-Visualization/blob/main/BubbleSortVisualization.java
+
    cd bubble-sort-visualization
    
 Compile the program:
