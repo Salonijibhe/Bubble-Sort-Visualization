@@ -26,8 +26,7 @@ Ensure you have the following installed:
 - Any Java IDE (e.g.VSCode, IntelliJ IDEA, Eclipse) or terminal/command-line tools
 
 ### Run the Application
-
-1. Clone the repository or download the source code:
+   Clone the repository or download the source code:
    git clone https://github.com/Salonijibhe/Bubble-Sort-Visualization/blob/main/BubbleSortVisualization.java
 
    cd bubble-sort-visualization
