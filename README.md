@@ -2,7 +2,7 @@
 
 A Java-based GUI application that **visually demonstrates the Bubble Sort algorithm** step-by-step using animated transitions. This tool is designed for educational purposes to help students and developers understand how Bubble Sort works internally.
 
-## ✨ Features
+## Features
 
 - Real-time visualization of each sorting pass
 - Color-coded highlights for:
@@ -13,10 +13,10 @@ A Java-based GUI application that **visually demonstrates the Bubble Sort algori
 - Clean, intuitive layout using Java Swing and AWT
 - Displays progress with pass count and sorting animation
 
-## 📷 Screenshot
+##  Screenshot
 check the screenshot file in repository
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -37,7 +37,7 @@ javac BubbleSortVisualization.java
 Run the application:
 java BubbleSortVisualization
 
-🎮 Usage
+-Usage
 Enter array elements (e.g., 45 12 78 33 9) into the text field at the top.
 
 Click the "Start Sorting" button.
@@ -46,11 +46,11 @@ Watch the animation as Bubble Sort operates on the array.
 
 Observe each pass and how elements shift into place.
 
-📁 File Structure
+File Structure
 BubbleSortVisualization.java  # Main application source file
 README.md                     # Project overview and instructions
 
-📚 Concepts Demonstrated
+Concepts Demonstrated
 Bubble Sort algorithm
 
 Java Swing GUI development
